@@ -11,147 +11,124 @@ $(document).ready(function(){
         let wrapper10 = document.querySelector('.wrapper-slash-price');
         let wrapper11 = document.querySelector('.wrapper-brackets-price__second');
 
-        wrapper1.classList.remove("active")
-        wrapper2.classList.remove("active")
-        wrapper3.classList.remove("active")
-        wrapper4.classList.remove("active")
-        wrapper5.classList.remove("active")
-        wrapper6.classList.remove("active")
-        wrapper7.classList.remove("active")
-        wrapper8.classList.remove("active")
-        wrapper9.classList.remove("active")
-        wrapper10.classList.remove("active")
-        wrapper11.classList.remove("active")
+    $('.disactive-on-load').removeClass("active");
 
-        $("#phone").mask("+9 (999) 99-99-999")
+    $("#phone").mask("+9 (999) 99-99-999");
 
-        $('.header__nav_button')
+    $('.menu-small-show')
 		.click(function(){
-			$('.menu-small').show()
-		});
+			$('.menu-small').show();
+		});  
 
-	$('.header__nav_button-small')
+    $('.menu-small-hide')
 		.click(function(){
-			$('.menu-small').show()
+			$('.menu-small').hide();
+		}); 
+
+	$('.popup-show')
+		.click(function(){
+			$('.popup-container').show();
 		});	
 
-	$('.menu-small__close')
-		.click(function(){
-			$('.menu-small').hide()
-		});	
 
-	$('.menu-small__services')
+	$('.popup__close')
 		.click(function(){
-			$('.menu-small').hide()
-		});	
-
-	$('.menu-small__portfolio')
-		.click(function(){
-			$('.menu-small').hide()
+			$('.popup-container').hide();
+			$('.popup__more').hide();
 		});
 
-	$('.menu-small__cost')
+	$('.more__img')
 		.click(function(){
-			$('.menu-small').hide()
+			$('.popup__more').slideToggle();
+			$('.more__img').toggleClass('more__transform');
 		});
 
-	$('.header__button')
-		.click(function(){
-			$('.popup-container').show()
-		});	
-
-	$('.work__button')
-		.click(function(){
-			$('.popup-container').show()
-		});
-
-	$('.contacts__button')
-		.click(function(){
-			$('.popup-container').show()
-		});
-		
-	$('.about__button')
-		.click(function(){
-			$('.popup-container').show()
-		});
-
-	$('.call__icon')
-		.click(function(){
-			$('.popup-container').show()
-		});
-
-	$('.services__button')
-		.click(function(){
-			$('.popup-container').show()
-		});
-
-	$('.close-svg')
-		.click(function(){
-			$('.popup-container').hide()
-		});
 
 	$('.popup-container')
 		.click(function(event){
 			if(event.target == this) {
 				$(this).hide();
+				$('.popup__more').hide();
 			}
 		});
+
+
+	$('.about__button')
+		.click(function(){
+			$('#popup__tittle').html('Узнать больше');
+			$('.popup__more').show();
+		});
+
+	$('.header__button')
+		.click(function(){
+			$('#popup__tittle').html('Обратный звонок');
+		});
+
+	$('.services__button')
+		.click(function(){
+			$('#popup__tittle').html('Узнать стоимость');
+			$('.popup__more').show();
+		});
+
+	$('.work__button')
+		.click(function(){
+			$('#popup__tittle').html('Заказать проект');
+			$('.popup__more').show();
+		});
+
+	$('.contacts__button')
+		.click(function(){
+			$('#popup__tittle').html('Обратный звонок');
+		});
+
+
+	$('form[name=form]').trigger('reset');
 		
 	$(function(){
-	 $('#form').validate({
-	 rules: {
-	 name: {
-	 required: true,
-	 minlength: 2
-	 }
-	 },
-	 messages: {
-	 fio: {
-	 required: "Необходимо ввести ФИО",
-	 minlength: "Введите не менее 2-х символов в поле 'Имя'"
-	 },
-	 tel: {
-	 required: "Необходимо ввести телефон"}
-		}
-	 });
+		$('#form').validate({
+			 rules: {
+			 fio: {
+			 	required: true,
+			 	minlength: 2
+			 },
+			 tel: 'required',
+			 email: {
+			 	email: true,
+			 }
+			 },
+			 messages: {
+			 fio: {
+			 required: "Необходимо ввести ФИО",
+			 minlength: "Введите не менее 2-х символов в поле 'Имя'"
+			 },
+			 email: {
+		     required: "Введите e-mail",
+			 email: "Адрес должен быть вида name@domain.com"
+				},
+			 tel: {
+			 required: "Необходимо ввести телефон"}
+			},
+			submitHandler: function() {
+				$('.popup-container').hide();
+ 				$('.success-container').addClass('flex');
+     			setTimeout("$('.success-container').removeClass('flex')", 2000)
+			}
+		});
 	}); 
 
 	$('form').submit(function() {
 
-    var $form = $(this);
-
-    $form.find('.error').remove();
-
-    if ($form.find('input[name=fio]').val() === '') {
-
-    $form.find('input[name=fio]')
-      .before('<div class="error"></div>');
-
-    return false;
-    }
-
-    if ($form.find('input[name=tel]').val() === '') {
-
-    $form.find('input[name=tel]')
-       .before('<div class="error"></div>');
-
-    return false;
-    }
+    	var $form = $(this);
 
     $.post(
         $form.attr('action'), 
         $form.serialize(),     
     )
-    .done(function() {
-    	$('.popup-container').hide();
-    	$('.success-container').addClass('flex');
-    	setTimeout("$('.success-container').removeClass('flex')", 2000)
-    });
-
     return false;
 	});
+
  });
 
-
+  
 
 

@@ -7,13 +7,20 @@
 	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	    <link rel="stylesheet" href="css/style.css">
 	    <link rel="stylesheet" href="libs/font-awesome/css/all.css">
-	    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	    <script src="js/jquery-3.4.1.min.js"></script>
 		<script src="js/script.js"></script>
-		<script src="js/scripts.js" defer></script>
+		<script src="js/slider.js" defer></script>
 		<script src="js/jquery.maskedinput.min.js"></script>
 	    <script src="js/jquery.validate.js"></script>
 		<title>Portfolio</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+		<link rel="manifest" href="img/favicon/site.webmanifest">
+		<link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
 	</head>
 
 	<body>
@@ -21,17 +28,28 @@
 			<div class="popup">
 				<div class="popup__header">
 					<div class="call-svg"></div>
-					<div class="popup__tittle">Обратный звонок</div>
-					<div class="close-svg"></div>
+					<div class="popup__tittle" id="popup__tittle">Обратный звонок</div>
+					<img src="img/close.png" alt="close" class="popup__close">
 				</div>
-				<form action="https://echo.htmlacademy.ru/" method="post" id="form">
+				<form action="https://echo.htmlacademy.ru/" method="post" id="form" name="form">
 					<div class="popup__fio">
-						<input type="text" name="fio" placeholder ="ФИО" required>
+						<input type="text" name="fio" placeholder ="ФИО" id="fio">
 					</div>
 					<div class="popup__number">
-						<input type="tel" name="tel" placeholder ="+9 (999) 99 99 999" id="phone" required>
+						<input type="tel" name="tel" placeholder ="+9 (999) 99 99 999" id="phone">
+					</div>
+					<div class="popup__more">
+						<div class="popup__mail">
+							<input type="email" name="email" placeholder="Электронная почта" id="email">
+						</div>
+						<div class="popup__message">
+							<textarea name="message" placeholder="Сообщение"></textarea>
+						</div>
 					</div>
 					<button class="popup__button">Заказать</button>
+					<div class="more">
+						<img src="img/more.png" alt="more" class="more__img">
+					</div>
 				</form>
 			</div>
 		</div>
@@ -43,17 +61,17 @@
 			</div>
 		</div>
 		<div class="menu-small">
-			<div class="menu-small__close">
+			<div class="menu-small__close menu-small-hide">
 			</div>
 			<nav class="menu-small__nav">
 				<ul>
-					<li class="menu-small__services">
+					<li class="menu-small__services menu-small-hide">
 						<a href="#services">Услуги</a>
 					</li>
-					<li class="menu-small__portfolio">
+					<li class="menu-small__portfolio menu-small-hide">
 						<a href="#portfolio">Портфолио</a>
 					</li>
-					<li class="menu-small__cost">
+					<li class="menu-small__cost menu-small-hide">
 						<a href="#cost">Стоимость</a>
 					</li>
 				</ul>
@@ -62,8 +80,8 @@
 
 		<header>
 			<div class="fixed-container header__container">
-				<div class="header__nav_button-small"></div>
-				<div class="header__nav_button"></div>
+				<div class="header__nav_button-small menu-small-show"></div>
+				<div class="header__nav_button menu-small-show"></div>
 				<nav class="header__nav">
 					<ul>
 						<li class="header__services">
@@ -81,10 +99,10 @@
 					<address class="header__number">
 						<a href="tel:+7(499)995-77-55">+7 (499) 995-77-55</a>
 					</address>
-					<button class="header__button">
+					<button class="header__button popup-show">
 						Заказать звонок
 					</button>
-					<div class="call__icon">
+					<div class="call__icon popup-show">
 					</div>
 				</div>
 			</div>
@@ -92,7 +110,7 @@
 
 		<section class="main">
 			<div class="about">
-				<div class="wrapper-div active">
+				<div class="wrapper-div active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.944in" height="0.361in" class="tags div">
 						<defs>
 							<linearGradient id="PSgrad_0" x1="0%" x2="0%" y1="100%" y2="0%">
@@ -104,7 +122,7 @@
 						<text kerning="auto" font-family="Roboto" fill="url(#PSgrad_0)" transform="matrix( 0.48280448948131, -0.12214047770298, 0.12214047770298, 0.48280448948131,2.73697875783512, 31.943314142598)" font-size="60px" >&#60;div&#62;</text>
 					</svg>
 				</div>
-				<div class="wrapper-brackets active">
+				<div class="wrapper-brackets active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.625in" height="0.694in" class="tags brackets">
 						<defs>
 							<linearGradient id="PSgrad_1" x1="0%" x2="0%" y1="100%" y2="0%">
@@ -116,7 +134,7 @@
 						<text kerning="auto" font-family="Roboto" fill="url(#PSgrad_1)" transform="matrix( 0.72159603080403, 0.37432663296015, -0.37432663296015, 0.72159603080403,0.12813234657619, 28.8941648937683)" font-size="60px">{&#32;}</text>
 					</svg>
 				</div>
-				<div class="wrapper-lattice active">
+				<div class="wrapper-lattice active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.486in" height="0.583in" class="tags lattice">
 						<defs>
 						<linearGradient id="PSgrad_2" x1="0%" x2="0%" y1="100%" y2="0%">
@@ -128,7 +146,7 @@
 						<text kerning="auto" font-family="Roboto" fill="url(#PSgrad_2)" transform="matrix( 0.91532249290851, 0.26083794888422, -0.26083794888422, 0.91532249290852,0.89891751676598, 36.0622778689229)" font-size="60px">&#35;</text>
 					</svg>
 				</div>
-				<div class="wrapper-slash active">
+				<div class="wrapper-slash active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.736in" height="0.5in" class="tags slash">
 						<defs>
 							<linearGradient id="PSgrad_3" x1="0%" x2="0%" y1="100%" y2="0%">
@@ -140,7 +158,7 @@
 						<text kerning="auto" font-family="Roboto" fill="url(#PSgrad_3)" transform="matrix( 0.62913254694498, -0.25657231186215, 0.25657231186215, 0.62913254694498,4.9323536519546, 40.8756002126332)" font-size="60px">&#60;&#47;&#62;</text>
 					</svg>
 				</div>
-				<div class="wrapper-div__second active">	
+				<div class="wrapper-div__second active disactive-on-load">	
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1.153in" height="0.542in" class="tags div__second" viewBox="55 0 15 65">
 						<defs>
 							<linearGradient id="PSgrad_4" x1="0%" x2="0%" y1="100%" y2="0%">
@@ -152,7 +170,7 @@
 						<text kerning="auto" font-family="Roboto" fill="url(#PSgrad_4)" transform="matrix( 0.58798214978162, 0.21554688540119, -0.21554688540119, 0.58798214978162,-4.3986502451404, 17.0012673316558)" font-size="60px">&#60;div&#62;</text>
 					</svg>
 				</div>	
-				<div class="wrapper-slash__second active">
+				<div class="wrapper-slash__second active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.861in" height="0.472in" class="tags slash__second">
 						<defs>
 							<linearGradient id="PSgrad_5" x1="0%" x2="0%" y1="100%" y2="0%">
@@ -168,7 +186,7 @@
 					<div class="about__text">
 						<h1>Дмитрий Алексеев</h1>
 						<h2>Frontend-разработчик и веб-верстальщик</h2>
-						<button class="about__button">
+						<button class="about__button popup-show">
 							Узнать больше
 						</button>
 					</div>
@@ -209,7 +227,7 @@
 								</div>
 						</div>
 					</div>
-					<button class="services__button">Узнать стоимость</button>
+					<button class="services__button popup-show">Узнать стоимость</button>
 				</div>
 			</div>
 			<div class="work" id="portfolio">
@@ -245,38 +263,38 @@
 				      aria-hidden="true"
 				    ></div>
 				</div>
-				<button class="work__button">Заказать проект</button>
+				<button class="work__button popup-show">Заказать проект</button>
 			</div>
 			<div class="price" id="cost">
-				<div class="wrapper-brackets-price active">
+				<div class="wrapper-brackets-price active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.625in" height="0.694in" class="tags-price brackets-price">
 						<text kerning="auto" font-family="Roboto" fill="#fff" transform="matrix( 0.72159603080403, 0.37432663296015, -0.37432663296015, 0.72159603080403,0.12813234657619, 28.8941648937684)" font-size="60px">
 							{&#32;}
 						</text>
 					</svg>
 				</div>
-				<div class="wrapper-lattice-price active">
+				<div class="wrapper-lattice-price active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.486in" height="0.583in" class="tags-price lattice-price">
 						<text kerning="auto" font-family="Roboto" fill="#fff" transform="matrix( 0.91532249290851, 0.26083794888422, -0.26083794888422, 0.91532249290852,0.89891751676598, 36.062277868923)" font-size="60px">
 							&#35;
 						</text>
 					</svg>
 				</div>
-				<div class="wrapper-div-price active">
+				<div class="wrapper-div-price active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1.153in" height="0.542in" class="tags-price div-price">
 						<text kerning="auto" font-family="Roboto" fill="#fff" transform="matrix( 0.58798214978162, 0.21554688540119, -0.21554688540119, 0.58798214978162,-4.39865024514029, 17.0012673316555)" font-size="60px">
 							&#60;div&#62;
 						</text>
 					</svg>
 				</div>
-				<div class="wrapper-slash-price active">
+				<div class="wrapper-slash-price active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.736in" height="0.5in" class="tags-price slash-price">
 						<text kerning="auto" font-family="Roboto" fill="#fff" transform="matrix( 0.62913254694498, -0.25657231186215, 0.25657231186215, 0.62913254694498,4.9323536519546, 40.8756002126333)" font-size="60px">
 							&#60;&#47;&#62;
 						</text>
 					</svg>
 				</div>
-				<div class="wrapper-brackets-price__second active">
+				<div class="wrapper-brackets-price__second active disactive-on-load">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0.611in" height="0.708in" class="tags-price brackets-price__second" viewBox="0 0 60 66">
 						<text kerning="auto" font-family="Roboto" fill="#fff" transform="matrix( 0.79372553245355, -0.25151098414347, 0.25151098414347, 0.79372553245355,8.61746403614666, 44.5232589928887)" font-size="60px">
 							{&#32;}
@@ -327,7 +345,7 @@
 						</div>
 					</address>
 					<div class="social">
-						<button class="contacts__button">Заказать звонок</button>
+						<button class="contacts__button popup-show">Заказать звонок</button>
 						<div class="network">
 							<ul>
 								<li>

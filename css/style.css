@@ -294,9 +294,9 @@ body{
 	
 	.popup{
 		width: 400px;
-		height: 490px;
+		padding-bottom: 30px;
 		background: #fff;
-		margin: 40px auto;
+		margin: 20px auto;
 		cursor: default;
 		border-radius: 20px;
 		box-sizing: border-box;
@@ -310,6 +310,7 @@ body{
 			border-top-right-radius: 20px;
 			border-top-left-radius: 20px;
 			display: flex;
+			position: relative;
 		}
 
 			.popup__tittle{
@@ -327,26 +328,30 @@ body{
 				margin-left: 40px;
 			}
 
-			.close-svg{
-				background-image: url(../svg/Capa_3.svg);
-				width: 30px;
-				height: 30px;
+			.popup__close{
+				width: 22px;
+				height: 22px;
 				cursor: pointer;
-				margin-top: 10px;
-				margin-left: 20px;
+				position: absolute;
+				left: 360px;
+				top: 15px;
 			}
 
-			.close-svg:hover{
-				background-image: url(../svg/Capa_3-hover.svg);
-			}
+				.popup__close:hover{
+					opacity: 0.7;
+				}
 
-			.close-svg:active{
-				background-image: url(../svg/Capa_3-active.svg);
-			}
+				.popup__close:active{
+					opacity: 0.5;
+				}
+
+				.popup__close:focus{
+					opacity: 0.3;
+				}
 
 			.popup__fio{
 				width: 310px;
-				margin-top: 70px;
+				margin-top: 40px;
 				margin-bottom: 30px;
 				margin-left: auto;
 				margin-right: auto;
@@ -365,7 +370,7 @@ body{
 
 			.popup__number{
 				margin-top: 20px;
-				margin-bottom: 40px;
+				margin-bottom: 20px;
 				width: 310px;
 				margin-left: auto;
 				margin-right: auto;
@@ -380,6 +385,65 @@ body{
 				}
 
 				.popup__number input:valid:not(:placeholder-shown) {border-color: green;}
+			
+			.more{
+				width: 40px;
+				height: 40px;
+				margin-left: auto;
+				margin-right: auto;
+			}	
+		
+				.more__img{
+					width: 70px;
+					height: 70px;
+					margin-left: auto;
+					margin-right: auto;
+					cursor: pointer;
+				}
+
+					.more__transform{
+						transform: rotate(180deg);
+					}
+
+			.popup__more{
+				display: none;
+			}
+
+
+				.popup__mail{
+					margin-left: auto;
+					margin-right: auto;
+					width: 310px;
+					margin-bottom: 20px;
+				}
+
+					.popup__mail input{
+						font-size: 17px;
+						padding-left: 10px;
+						width: 300px;
+						height: 50px;
+						border: 1px solid #fa378d; 
+					}
+
+					.popup__mail input:valid:not(:placeholder-shown) {border-color: green;}
+
+
+				.popup__message{
+					margin-left: auto;
+					margin-right: auto;
+					width: 310px;
+					margin-bottom: 30px;
+				}
+
+					.popup__message textarea{
+						font-size: 17px;
+						padding-left: 10px;
+						padding-top: 10px;
+						width: 300px;
+						height: 100px;
+						border: 1px solid #fa378d;
+						font-family: Roboto;
+					}
 
 			.popup__button{
 				display: block;
@@ -550,21 +614,19 @@ header{
 				margin-right: 30px;
 			}
 
-				.header__portfolio a{
-					text-decoration: underline;
-					color: #f82370 !important;
-				}
-
 			.header__services a:hover{
 				color: #f82370;
+				text-decoration: underline;
 			}
 
 			.header__portfolio a:hover{
-				color: #1f1f24 !important;
+				color: #f82370 !important;
+				text-decoration: underline;
 			}
 
 			.header__cost a:hover{
 				color: #f82370;
+				text-decoration: underline;
 			}
 
 	.call__icon{
@@ -1389,13 +1451,32 @@ header{
 @media (max-width: 450px) {
 	.popup{
 		width: 320px;
-		height: 410px;
 		border-radius: 20px;
 	}
 
+		.popup__close{
+			left: 280px;
+		}
+		
 		.popup__tittle{
 			font-size: 19px;
 		}
+
+		.popup__mail{
+			width: 260px;
+		}
+
+			.popup__mail input{
+				width: 240px;
+			}		
+
+		.popup__message{
+			width: 260px;
+		}
+
+			.popup__message textarea{
+				width: 240px;
+			}
 
 		.popup__fio{
 			margin-bottom: 20px;
