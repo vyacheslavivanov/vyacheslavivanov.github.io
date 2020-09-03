@@ -1913,7 +1913,7 @@ header{
 /*SVG элементы Cost*/
 
 .wrapper-brackets-price.active .brackets-price{
-	transform: translate(300px, 50px);
+	transform: translate(100px, -25px);
 }
 
 .wrapper-brackets-price__second.active .brackets-price__second{
