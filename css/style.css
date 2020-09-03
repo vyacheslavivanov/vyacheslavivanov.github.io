@@ -96,6 +96,10 @@ p {
   flex-shrink: 0;
 }
 
+.slider__item{
+	padding-left: 15px;
+}
+
 .slider__item img {
   display: block;
 }
