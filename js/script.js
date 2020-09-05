@@ -82,8 +82,6 @@ $(document).ready(function(){
 		});
 
 
-	$('form[name=form]').trigger('reset');
-		
 	$(function(){
 		$('#form').validate({
 			 rules: {
@@ -111,7 +109,8 @@ $(document).ready(function(){
 			submitHandler: function() {
 				$('.popup-container').hide();
  				$('.success-container').addClass('flex');
-     			setTimeout("$('.success-container').removeClass('flex')", 2000)
+     			setTimeout("$('.success-container').removeClass('flex')", 2000);
+     			$("#form").trigger("reset");
 			}
 		});
 	}); 
@@ -122,7 +121,7 @@ $(document).ready(function(){
 
     $.post(
         $form.attr('action'), 
-        $form.serialize(),     
+        $form.serialize(),    
     )
     return false;
 	});

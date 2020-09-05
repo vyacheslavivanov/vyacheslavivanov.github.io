@@ -179,6 +179,14 @@ p {
 	.slider__pagination {
   		margin-top: 40px;
 	}
+
+}
+
+@media (max-width: 	385px) {
+
+	.slider__item{
+		padding-left: 0px;
+	}
 }
 
 @media (min-width: 1024px) {
@@ -190,6 +198,7 @@ p {
 /* roboto-regular - latin_cyrillic */
 @font-face {
   font-family: 'Roboto';
+  font-display: fallback;
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/roboto-v20-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
@@ -204,6 +213,7 @@ p {
 /* roboto-500 - latin_cyrillic */
 @font-face {
   font-family: 'Roboto';
+  font-display: fallback;
   font-style: normal;
   font-weight: 500;
   src: url('../fonts/roboto-v20-latin_cyrillic-500.eot'); /* IE9 Compat Modes */
@@ -218,6 +228,7 @@ p {
 /* roboto-700 - latin_cyrillic */
 @font-face {
   font-family: 'Roboto';
+  font-display: fallback;
   font-style: normal;
   font-weight: 700;
   src: url('../fonts/roboto-v20-latin_cyrillic-700.eot'); /* IE9 Compat Modes */
@@ -1908,7 +1919,15 @@ header{
 	.div__second text{
 		font-size: 25px;
 	}
+}
 
+@media (max-width: 390px) {
+	.div__second{
+		left: 300px;
+	}
+}
+
+@media (max-width: 340px) {
 	.div__second{
 		left: 250px;
 	}
