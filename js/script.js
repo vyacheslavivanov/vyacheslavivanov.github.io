@@ -1,15 +1,4 @@
 $(document).ready(function(){
-        let wrapper1 = document.querySelector('.wrapper-div');
-        let wrapper2 = document.querySelector('.wrapper-brackets');
-        let wrapper3 = document.querySelector('.wrapper-lattice');
-        let wrapper4 = document.querySelector('.wrapper-slash');
-        let wrapper5 = document.querySelector('.wrapper-div__second');
-        let wrapper6 = document.querySelector('.wrapper-slash__second');
-        let wrapper7 = document.querySelector('.wrapper-div-price');
-        let wrapper8 = document.querySelector('.wrapper-brackets-price');
-        let wrapper9 = document.querySelector('.wrapper-lattice-price');
-        let wrapper10 = document.querySelector('.wrapper-slash-price');
-        let wrapper11 = document.querySelector('.wrapper-brackets-price__second');
 
     $('.disactive-on-load').removeClass("active");
 
@@ -127,6 +116,7 @@ $(document).ready(function(){
 	});
 
  });
+
 
   
 
