@@ -95,26 +95,28 @@ $(document).ready(function(){
 			 tel: {
 			 required: "Необходимо ввести телефон"}
 			},
-			submitHandler: function() {
-				$('.popup-container').hide();
- 				$('.success-container').addClass('flex');
-     			setTimeout("$('.success-container').removeClass('flex')", 2000);
-     			$("#form").trigger("reset");
-			}
+			submitHandler(form) {
+				let th = $(form);
+
+				$.ajax({
+					type: 'POST',
+					url: 'mail.php',
+					data: th.serialize(),
+				}).done(() => {
+					console.log(Отправлено)
+					th.trigger('reset');
+				});
+
+					return false;
+				}
+			// submitHandler: function() {
+			// 	$('.popup-container').hide();
+ 		// 		$('.success-container').addClass('flex');
+   //   			setTimeout("$('.success-container').removeClass('flex')", 2000);
+   //   			$("#form").trigger("reset");
+			// }
 		});
-	}); 
-
-	$('form').submit(function() {
-
-    	var $form = $(this);
-
-    $.post(
-        $form.attr('action'), 
-        $form.serialize(),    
-    )
-    return false;
 	});
-
  });
 
 
