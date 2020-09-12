@@ -94,27 +94,21 @@ $(document).ready(function(){
 				},
 			 tel: {
 			 required: "Необходимо ввести телефон"}
-			},
-			submitHandler(form) {
-				let th = $(form);
+			}
+		});
 
-				$.ajax({
-					type: 'POST',
-					url: 'mail.php',
-					data: th.serialize(),
-				}).done(() => {
-					console.log(Отправлено)
-					th.trigger('reset');
-				});
-
-					return false;
-				}
-			// submitHandler: function() {
-			// 	$('.popup-container').hide();
- 		// 		$('.success-container').addClass('flex');
-   //   			setTimeout("$('.success-container').removeClass('flex')", 2000);
-   //   			$("#form").trigger("reset");
-			// }
+		$('#form').submit(function() { 
+		$.ajax({
+			type: "POST",
+			url: "mail.php",
+			data: $(this).serialize()
+		}).done(function() {
+			$('.popup-container').hide();
+ 			$('.success-container').addClass('flex');
+     		setTimeout("$('.success-container').removeClass('flex')", 2000);
+     		$("#form").trigger("reset");
+		});
+		return false;
 		});
 	});
  });
