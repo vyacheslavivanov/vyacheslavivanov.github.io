@@ -170,15 +170,11 @@ body {
   }
 
   .header__container {
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .header__title {
     display: none;
-  }
-
-  .header__number_icon {
-    margin-left: 15px;
   }
 
   .signin__login {
