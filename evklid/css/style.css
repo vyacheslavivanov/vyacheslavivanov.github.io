@@ -492,7 +492,7 @@ body {
 
 /* slider */
 
-.swiper-container {
+.swiper {
   position: absolute;
   max-width: 1770px;
   height: 668px;
